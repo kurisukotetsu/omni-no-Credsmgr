@@ -21,6 +21,8 @@ from neutron.common.aws_utils import AwsUtils
 from neutron import manager
 from neutron.plugins.ml2 import driver_api as api
 from neutron.plugins.ml2.drivers.aws import callbacks
+from neutron_lib import exceptions
+from neutron_lib.plugins import directory
 from oslo_log import log
 
 LOG = log.getLogger(__name__)
