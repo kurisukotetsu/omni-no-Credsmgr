@@ -14,8 +14,8 @@ under the License.
 import json
 import random
 
-from neutron.callbacks import events
-from neutron.callbacks import resources
+from neutron_lib.callbacks import events
+from neutron_lib.callbacks import resources
 from neutron.common.aws_utils import AwsException
 from neutron.common.aws_utils import AwsUtils
 from neutron import manager
