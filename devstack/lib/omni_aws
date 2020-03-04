@@ -83,7 +83,8 @@ function configure_neutron {
 
     sudo cp -R $OMNI_DATA_DIR/neutron/neutron/plugins/ml2/drivers/aws/ /opt/stack/neutron/neutron/plugins/ml2/drivers/
     sudo cp $OMNI_DATA_DIR/neutron/neutron/services/l3_router/aws_router_plugin.py /opt/stack/neutron/neutron/services/l3_router/
-    sudo cp $OMNI_DATA_DIR/neutron/neutron/common/* /opt/stack/neutron/neutron/common/
+    #sudo cp $OMNI_DATA_DIR/neutron/neutron/common/* /opt/stack/neutron/neutron/common/
+    sudo cp -R $OMNI_DATA_DIR/neutron/neutron/common/ /opt/stack/neutron/neutron/
     sudo systemctl restart devstack@q-svc.service
 }
 
