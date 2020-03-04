@@ -81,10 +81,18 @@ function configure_neutron {
     sudo crudini --set $NEUTRON_ENTRY_POINT neutron.ml2.mechanism_drivers aws neutron.plugins.ml2.drivers.aws.mechanism_aws:AwsMechanismDriver
     sudo crudini --set $NEUTRON_ENTRY_POINT neutron.service_plugins aws_router neutron.services.l3_router.aws_router_plugin:AwsRouterPlugin
 
-    sudo cp -R $OMNI_DATA_DIR/neutron/neutron/plugins/ml2/drivers/aws/ /opt/stack/neutron/neutron/plugins/ml2/drivers/
-    sudo cp $OMNI_DATA_DIR/neutron/neutron/services/l3_router/aws_router_plugin.py /opt/stack/neutron/neutron/services/l3_router/
-    #sudo cp $OMNI_DATA_DIR/neutron/neutron/common/* /opt/stack/neutron/neutron/common/
+   
+    
     sudo cp -R $OMNI_DATA_DIR/neutron/neutron/common/ /opt/stack/neutron/neutron/
+    
+    
+    sudo cp -R $OMNI_DATA_DIR/neutron/neutron/plugins/ml2/drivers/ /opt/stack/neutron/neutron/plugins/ml2/
+    
+    sudo cp -R $OMNI_DATA_DIR/neutron/neutron/services/l3_router/ /opt/stack/neutron/neutron/services/
+    #sudo neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head
+
+    
+    
     sudo systemctl restart devstack@q-svc.service
 }
 
